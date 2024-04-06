@@ -1,0 +1,47 @@
+aside {
+    background-color: var(--primary-purple);
+    box-shadow: 5px 5px 5px var(--primary-shadow);
+    padding: 1rem;
+    width: 200px;
+    height: 100%;
+}
+
+aside h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--primary-white);
+}
+
+aside nav {
+    padding-block: 1rem;
+}
+
+aside ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+aside li {
+    list-style: none;
+}
+
+
+
+aside a, button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--secondary-white);
+    text-decoration: none;
+    font-size: large;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+aside a:hover, button:hover,
+.active {
+    background-color: var(--secondary-purple) !important;
+}

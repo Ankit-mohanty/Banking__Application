@@ -1,0 +1,87 @@
+<main>
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <section>
+    <h3>Tranfer Amount</h3>
+    <hr />
+    <div class="deposit-box">
+      <button (click)="modalVisible = !modalVisible">Transfer</button>
+    </div>
+    <table aria-describedby="Deposited amount">
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Transaction mode</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (datatable) { @for (transaction of datatable.transactions; track
+        transaction.timestamp) {
+        <tr>
+          <td>{{ transaction.timestamp }}</td>
+          <td>{{ transaction.mode }}</td>
+          <td>{{ transaction.balance | currency : "INR" }}</td>
+        </tr>
+        } @empty {
+        <tr>
+          <td colspan="3">No record found</td>
+        </tr>
+        } } @else {
+        <tr>
+          <td colspan="3">No record found</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    @if(datatable) {
+    <div class="paging">
+      <p>
+        showing {{ datatable.pageNumber }} to {{ pageSize }} of
+        {{ datatable.totalRecord }} entries
+      </p>
+      <div class="page">
+        @for (item of totalPage; track $index) {
+        <button (click)="onPageChange($index + 1)">{{ $index + 1 }}</button>
+        }
+      </div>
+    </div>
+    }
+  </section>
+</main>
+
+@if (modalVisible) {
+<app-modal [header]="'Transfer form'">
+  <form
+    method="post"
+    #transferForm="ngForm"
+    (ngSubmit)="onTransfer(transferForm)"
+  >
+    <input
+      type="text"
+      placeholder="Receiver"
+      name="receiever"
+      class="my-5"
+      required
+      ngModel
+    />
+    <input
+      type="text"
+      placeholder="Amount"
+      class="w-100"
+      name="balance"
+      required
+      ngModel
+    />
+    <div class="button-group">
+      <button type="submit">Transfer</button>
+      <button type="button" (click)="modalVisible = !modalVisible">
+        Cancel
+      </button>
+    </div>
+  </form>
+</app-modal>
+} @if (toastVisible) {
+<app-toast [heading]="toastHeading" [description]="toastDescription">
+</app-toast>
+}

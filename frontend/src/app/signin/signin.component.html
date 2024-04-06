@@ -1,0 +1,23 @@
+<header>
+    <h1>Jtbank</h1>
+</header>
+
+<section>
+    <div class="form-header">
+        <h2>Sign in</h2>
+    </div>
+    <div class="form-body">
+        <form method="post" #signinForm="ngForm" (ngSubmit)="onLogin(signinForm)">
+            <input type="text" placeholder="Email" name="accountEmail" required ngModel />
+            <input type="password" placeholder="Password" name="accountPassword" required ngModel />
+            <input type="submit" value="Sign in" [disabled]="!signinForm.valid" [class.gray]="!signinForm.valid" />
+        </form>
+    </div>
+    <div class="form-footer">
+        <p>Don't have an account?</p>
+        <a [routerLink]="'/signup'">Sign up now</a>
+    </div>
+</section>
+@if(toastVisible) {
+<app-toast [heading]="toastHeading" [description]="toastDescription"></app-toast>
+}

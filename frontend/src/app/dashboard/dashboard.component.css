@@ -1,0 +1,96 @@
+main {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "aside header"
+        "aside section";
+}
+
+app-header {
+    grid-area: header;
+}
+
+app-sidebar {
+    grid-area: aside;
+}
+
+section {
+    grid-area: section;
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: 200px auto;
+    grid-template-areas:
+        "total1 total2 total3"
+        "data-table data-table data-table";
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-purple);
+    color: var(--primary-white);
+    border-radius: 1rem;
+}
+
+section div:last-child {
+    background-color: var(--primary-white);
+    box-shadow: 5px 5px 5px var(--primary-shadow);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.table-container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+h2 {
+    text-align: center;
+    margin-block: 0.5rem;
+}
+
+table {
+    width: 100%;
+}
+
+table,
+tr,
+th,
+td {
+    border-collapse: collapse;
+    text-align: center;
+    font-size: large;
+}
+
+table th {
+    padding-block: 0.5rem;
+}
+
+table thead {
+    background-color: var(--secondary-sky);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--primary-sky);
+}
+
+section div:first-child {
+    grid-area: total1;
+}
+
+section div:nth-child(2) {
+    grid-area: total2;
+}
+
+section div:nth-child(3) {
+    grid-area: total3;
+}
+
+section div:nth-child(4) {
+    grid-area: data-table;
+}

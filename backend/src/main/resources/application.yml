@@ -1,0 +1,21 @@
+server:
+  port: 1205
+  servlet:
+    context-path: "/banking"
+
+spring:
+  datasource:
+    url: "jdbc:mysql://localhost/banking"
+    username: "root"
+    password: "smruti"
+  sql:
+    init:
+      mode: ALWAYS
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+upload:
+  file:
+    name: "profile-pictures/"
+

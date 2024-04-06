@@ -1,0 +1,93 @@
+<main>
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    @if (account) {
+    <section>
+        <div class="profile-container">
+            <div>
+                <img #profilePic [src]="profilePicture" alt="no img" role="button"
+                    title="edit" (click)="modalVisible = !modalVisible" 
+                    (error)="alternativeImage(profilePic)" />
+
+                <strong>{{account.accountHolderName}}</strong>
+                <p><i class="fa-solid fa-file-invoice"></i> {{account.accountNumber}}</p>
+                <p><i class="fa fa-wallet"></i> {{ account.accountBalance| currency : "INR" }}</p>
+                <p><i class="fa fa-phone"></i> {{account.contactNumber}}</p>
+                <p><i class="fa fa-envelope"></i> {{account.accountEmail}}</p>
+            </div>
+            <div>
+                <h2>About</h2>
+                <p>{{account.aboutCustomer}}</p>
+            </div>
+        </div>
+        <div class="form-container">
+            <form method="post" (submit)="onUpdate()">
+                <h2>Personal Detalis</h2>
+                <div class="personal-details">
+                    <div class="form-group">
+                        <label for="name">name</label>
+                        <input type="text" placeholder="Smruti" name="accountHolderName"
+                            [(ngModel)]="account.accountHolderName" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Mobile number</label>
+                        <input type="text" placeholder="9087654321" name="contactNumber"
+                            [(ngModel)]="account.contactNumber" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Account type</label>
+                        <select name="accountType" [(ngModel)]="account.accountType">
+                            <option value="CURRENT">CURRENT</option>
+                            <option value="SAVINGS">SAVINGS</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">About customer</label>
+                        <textarea name="aboutCustomer" cols="30" rows="3" placeholder="Loyal customer"
+                            [(ngModel)]="account.aboutCustomer" required></textarea>
+                    </div>
+                </div>
+                <h2>Address</h2>
+                <div class="address-details">
+                    <div class="form-group">
+                        <label for="name">City</label>
+                        <input type="text" placeholder="bbsr" name="city" [(ngModel)]="account.city" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">State</label>
+                        <input type="text" placeholder="odisha" name="state" [(ngModel)]="account.state" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Country</label>
+                        <input type="text" placeholder="india" name="country" [(ngModel)]="account.country" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Zip code</label>
+                        <input type="text" placeholder="123456" name="zipcode" [(ngModel)]="account.zipcode" required />
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    }
+</main>
+
+@if (modalVisible) {
+<app-modal [header]="'Profile picture'">
+    <form method="post" #imageForm (submit)="onImageSubmit(imageForm)">
+        <input type="file" (change)="onUpload($event)" />
+        <div class="button-group">
+            <button type="submit">Upload</button>
+            <button type="button" (click)="modalVisible = !modalVisible">
+                Cancel
+            </button>
+        </div>
+    </form>
+</app-modal>
+} @if (toastVisible) {
+<app-toast [heading]="toastHeading" [description]="toastDescription">
+</app-toast>
+}

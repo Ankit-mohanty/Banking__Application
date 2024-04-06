@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Rubik+Iso&display=swap");
+
+:root {
+  --primary-white: #fff;
+  --secondary-white: #f4f4f4;
+  --primary-purple: rgb(106, 12, 106);
+  --secondary-purple: rgb(158, 13, 158);
+  --primary-sky: #f3f8fe;
+  --secondary-sky: #d0dff2;
+  --primary-shadow: rgba(0, 0, 0, 0.3);
+  --secondary-shadow: rgba(0, 0, 0, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: #ccc;
+}
+
+.my-5 {
+  margin-block: 5px;
+}

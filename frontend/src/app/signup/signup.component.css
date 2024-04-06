@@ -1,0 +1,73 @@
+header {
+    background-color: var(--primary-purple);
+    color: var(--primary-white);
+    text-align: center;
+    padding-block: 1rem;
+    box-shadow: 5px 5px 5px var(--primary-shadow);
+}
+
+section {
+    background-color: var(--primary-white);
+    box-shadow: 10px 10px 10px var(--primary-shadow);
+    border-radius: 1rem;
+    width: clamp(300px, 50%, 500px);
+    padding-bottom: 1rem;
+    margin: 1rem auto;
+}
+
+.form-header {
+    background-color: var(--primary-purple);
+    color: var(--primary-white);
+    padding-block: 0.5rem;
+    text-align: center;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.form-body {
+    padding: 2rem 1rem;
+}
+
+.form-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-body form input,
+select,
+textarea {
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    background-color: var(--secondary-white);
+    font-family: "Madimi One", sans-serif;
+    resize: none;
+}
+
+.form-body form input[type="submit"] {
+    background-color: var(--secondary-purple);
+    color: var(--primary-white);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.form-footer {
+    display: grid;
+    place-items: center;
+    margin-block: 0.5rem;
+}
+
+.form-footer p {
+    color: gray;
+}
+
+.form-footer a {
+    color: var(--secondary-purple);
+}
+
+.gray {
+    background-color: gray !important;
+}

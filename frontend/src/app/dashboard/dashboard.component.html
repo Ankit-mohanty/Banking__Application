@@ -1,0 +1,41 @@
+<main>
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  @if (dashboard) {
+  <section>
+    <div class="card">
+      <h3>Number of Withdrawal</h3>
+      <p>{{dashboard.numberOfWithdrawal}}</p>
+    </div>
+    <div class="card">
+      <h3>Number of Deposit</h3>
+      <p>{{dashboard.numberOfDeposit}}</p>
+    </div>
+    <div class="card">
+      <h3>Number of Transfer</h3>
+      <p>{{dashboard.numberOfTransfer}}</p>
+    </div>
+    <div class="table-container">
+      <h2>Last 5 Transactions</h2>
+      <table aria-describedby="Account detail">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Transaction mode</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (transaction of dashboard.transactions; track $index) {
+          <tr>
+            <td>{{transaction.timestamp}}</td>
+            <td>{{transaction.mode}}</td>
+            <td>{{ transaction.balance | currency : "INR" }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+  }
+</main>

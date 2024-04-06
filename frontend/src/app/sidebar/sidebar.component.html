@@ -1,0 +1,54 @@
+<aside>
+    <h2>Jtbank</h2>
+    <hr />
+    <nav>
+      <ul>
+        <li>
+          <a
+            routerLink="/dashboard"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/deposit"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><i class="fas fa-money-check"></i> Deposit</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/withdrawal"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><i class="fas fa-money-bill-wave"></i> Withdrawal</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/transfer"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><i class="fas fa-exchange-alt"></i> Transfer</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/profile"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><i class="fas fa-user"></i> Profile</a
+          >
+        </li>
+        <li>
+          <button (click)="onLogout()">
+            <i class="fas fa-right-from-bracket"></i> Logout
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  

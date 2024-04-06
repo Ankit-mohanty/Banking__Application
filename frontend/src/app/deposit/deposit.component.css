@@ -1,0 +1,128 @@
+main {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "aside header"
+        "aside section";
+}
+
+app-header {
+    grid-area: header;
+}
+
+app-sidebar {
+    grid-area: aside;
+}
+
+section {
+    grid-area: section;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr auto;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: var(--primary-white);
+    box-shadow: 5px 5px 5px var(--primary-shadow);
+    border-radius: 1rem;
+}
+
+h3 {
+    text-align: center;
+    font-size: large;
+    padding-block: 1rem;
+}
+
+.deposit-box {
+    margin-block: 1rem;
+    text-align: right;
+}
+
+.deposit-box button {
+    border: none;
+    outline: none;
+    background-color: var(--secondary-purple);
+    color: var(--primary-white);
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0.5rem 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 5px var(--primary-shadow);
+    font-size: large;
+}
+
+table {
+    width: 100%;
+}
+
+table,
+tr,
+th,
+td {
+    padding-block: 1rem;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: large;
+}
+
+table thead {
+    background-color: var(--secondary-sky);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--primary-sky);
+}
+
+.paging {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.paging .page {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.paging .page button {
+    border: none;
+    outline: none;
+    background: none;
+    text-decoration: underline;
+    font-size: large;
+    font-family: "Madimi One", sans-serif;
+    color: var(--secondary-purple);
+    cursor: pointer;
+}
+
+app-modal input {
+    display: block;
+    outline: none;
+    width: 100%;
+    font-size: medium;
+    border: 1px solid var(--secondary-sky);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.2rem;
+    font-family: "Madimi One", sans-serif;
+}
+
+app-modal .button-group {
+    padding-block: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+app-modal .button-group button {
+    border: none;
+    background-color: var(--secondary-purple);
+    box-shadow: 5px 5px 5px var(--primary-shadow);
+    color: var(--primary-white);
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0.3rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: small;
+}

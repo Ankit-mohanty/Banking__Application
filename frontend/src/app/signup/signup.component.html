@@ -1,0 +1,30 @@
+<header>
+    <h1>Jtbank</h1>
+</header>
+
+<section>
+    <div class="form-header">
+        <h2>Sign up</h2>
+    </div>
+    <div class="form-body">
+        <form method="post" #signupform="ngForm" (submit)="onSubmit(signupform)">
+            <input type="text" placeholder="Full name" name="accountHolderName" required ngModel />
+            <input type="email" placeholder="Email" name="accountEmail" required ngModel />
+            <input type="password" placeholder="Password" name="accountPassword" required ngModel />
+            <input type="text" placeholder="Mobile number" name="contactNumber" required ngModel />
+            <select name="accountType" ngModel="CURRENT">
+                <option value="CURRENT">CURRENT</option>
+                <option value="SAVINGS">SAVINGS</option>
+            </select>
+            <textarea name="aboutCustomer" placeholder="About customer" rows="2" required ngModel></textarea>
+            <input type="submit" value="Sign up" [disabled]="!signupform.valid" [class.gray]="!signupform.valid" />
+        </form>
+    </div>
+    <div class="form-footer">
+        <p>Alredy have an account?</p>
+        <a [routerLink]="'/signin'">Sign in</a>
+    </div>
+</section>
+@if(toastVisible) {
+<app-toast [heading]="toastHeading" [description]="toastDescription"></app-toast>
+}
